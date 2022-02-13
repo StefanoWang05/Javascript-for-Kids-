@@ -1,3 +1,4 @@
+<!--It's the same thing but with a loop which creates and animates all 10 of the balls.-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +14,14 @@
       this.y = 100;
       this.xSpeed = (Math.random() * 10) - 5;
       this.ySpeed = (Math.random() * 10) - 5;
-      var colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple "];
-      this.color = pickRandomColour(colors);
+      var colors = ["Red", "Orange", "Yellow", "Green", "Blue",  "Purple"];
+      this.color = pickRandomcolor(colors);
     };
-      
-      var pickRandomColor= function(randomcolor);
-      return randomcolor[Math.floor(Math.random() * randomcolor.length)];
-    
-      
 
-      
+    var pickRandomcolor= function (colorr) {
+      return colorr[Math.floor(Math.random() * colorr.length)];
+    };
+
     var circle = function (x, y, radius, fillCircle) {
       ctx.beginPath();
       ctx.arc(x, y, radius, 0, Math.PI * 2, false);
@@ -34,6 +33,7 @@
     };
 
     Ball.prototype.draw = function () {
+      ctx.fillStyle=this.color;
       circle(this.x, this.y, 3, true);
     };
 
@@ -68,8 +68,7 @@
       for (var a = 0; a < balls.length; a++) {
         balls[a].draw();
         balls[a].move();
-        balls[a].checkCollision()
-        balls[a].pickrandomcolor();
+        balls[a].checkCollision();
       }
 
       ctx.strokeRect(0, 0, width, height);

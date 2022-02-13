@@ -17,9 +17,9 @@
       this.color = pickRandomColour(colors);
     };
       
-      var pickRandomColour= function(randomcolor);
+      var pickRandomColor= function(randomcolor);
       return randomcolor[Math.floor(Math.random() * randomcolor.length)];
-    };
+    
       
 
       
@@ -68,7 +68,8 @@
       for (var a = 0; a < balls.length; a++) {
         balls[a].draw();
         balls[a].move();
-        balls[a].checkCollision();
+        balls[a].checkCollision()
+        balls[a].pickrandomcolor();
       }
 
       ctx.strokeRect(0, 0, width, height);
